@@ -1,10 +1,22 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using GitRebase;
+using GitRebase.Commands;
+
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder();
+builder.Services.AddCommands();
 
 IHost host = builder.Build();
 
-Console.WriteLine($"Hello! Learning Git Rebase I see 😀{Environment.NewLine}");
+await host.StartAsync();
 
-await host.RunAsync();
+CommandHandler commandHandler = host.Services.GetRequiredService<CommandHandler>();
+Command? command = commandHandler.GetNextCommand();
+while (command is not NullCommand)
+{
+    await command.ExecuteAsync(default);
+    command = commandHandler.GetNextCommand();
+}
+
+await host.StopAsync();
