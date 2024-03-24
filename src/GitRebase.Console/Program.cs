@@ -5,7 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder();
-builder.Services.AddCommands();
+builder.Services
+    .AddCommands()
+    .AddHealthChecks();
 
 IHost host = builder.Build();
 
