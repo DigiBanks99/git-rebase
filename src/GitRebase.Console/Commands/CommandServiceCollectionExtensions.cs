@@ -6,9 +6,10 @@ internal static class CommandServiceCollectionExtensions
 {
     public static IServiceCollection AddCommands(this IServiceCollection services)
     {
-        services.AddSingleton<CommandHandler>();
-        services.AddSingleton<Command, CheckHealthCommand>();
-        services.AddSingleton<Command, PrintHelloCommand>();
-        return services;
+        return services
+            .AddSingleton<CommandHandler>()
+            .AddSingleton<Command, CheckHealthCommand>()
+            .AddSingleton<Command, CheckStatusCommand>()
+            .AddSingleton<Command, PrintHelloCommand>();
     }
 }

@@ -16,7 +16,7 @@ internal class CheckHealthCommand : Command
     {
         Console.WriteLine("Checking health...");
 
-        var healthReport = await _healthCheckService.CheckHealthAsync(cancellationToken);
+        HealthReport healthReport = await _healthCheckService.CheckHealthAsync(cancellationToken);
 
         Console.WriteLine($"Health status is {healthReport.Status}");
     }
