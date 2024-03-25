@@ -1,5 +1,4 @@
-﻿
-namespace GitRebase.Commands;
+﻿namespace GitRebase.Commands;
 
 internal class NullCommand : Command
 {

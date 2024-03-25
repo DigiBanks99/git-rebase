@@ -1,6 +1,4 @@
-﻿using GitRebase.Commands;
-
-namespace GitRebase;
+﻿namespace GitRebase;
 
 internal class CommandHandler
 {

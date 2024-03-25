@@ -1,5 +1,4 @@
-﻿
-namespace GitRebase;
+﻿namespace GitRebase;
 
 internal class PrintErrorCommand : Command
 {
